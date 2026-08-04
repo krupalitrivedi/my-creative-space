@@ -41,6 +41,29 @@ function Contact() {
       >
         {profile.email}
       </a>
+      <div className="mt-12 border-t border-ink/10 pt-8">
+        <span className="mb-6 block text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
+          Connect
+        </span>
+        <div className="flex flex-wrap gap-6 text-sm font-medium uppercase tracking-widest md:gap-10">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="border-b border-ink pb-1 transition-colors hover:border-accent hover:text-accent"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={profile.twitter}
+            target="_blank"
+            rel="noreferrer"
+            className="border-b border-ink pb-1 transition-colors hover:border-accent hover:text-accent"
+          >
+            X (Twitter)
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
