@@ -81,6 +81,11 @@ export const projects = [
 
 export const writing: LinkItem[] = [
   {
+    title: "Check blogs on Tiiny Host",
+    href: "https://tiiny.host/blog/author/krupali",
+    note: "Tiiny Host",
+  },
+  {
     title: "Huddle01: The real-time connectivity network",
     href: "https://x.com/huddle01com/status/1894054341696516430",
     note: "Long-form thread",
