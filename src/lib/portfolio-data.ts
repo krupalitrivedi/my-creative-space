@@ -6,19 +6,21 @@ export const profile = {
   tagline: "Tech. Writing. Yapping.",
   intro:
     "Growth marketer and technical content strategist working across Web3, AI, Cloud and SaaS. I turn complicated systems into words everyone can actually understand.",
-  currently: "Growth Lead at Huddle01 — writing, marketing, and building small AI tools",
+  currently: "Freelance technical writing, content strategy and growth — open to new work",
   email: "krupalitrivedi2002@gmail.com",
+  linkedin: "https://www.linkedin.com/in/krupalitrivedi/",
+  twitter: "https://x.com/chai_really",
   socials: [
     { title: "X (Twitter)", href: "https://x.com/chai_really" },
+    { title: "LinkedIn", href: "https://www.linkedin.com/in/krupalitrivedi/" },
     { title: "Blog", href: "https://acodeandaword.com/" },
     { title: "Telegram", href: "https://t.me/krupalitrivedi" },
-    { title: "Podcast", href: "https://open.spotify.com/show/2fu6mUmeHrceSU6oBphVSA" },
   ] as LinkItem[],
 };
 
 export const experience = [
   {
-    period: "Jul 2025 — Jun 2026",
+    period: "Jul 2025 — Jul 2026",
     role: "Growth Lead",
     org: "Huddle01",
     body: "Activated email marketing as a distribution and revenue channel — $20k+ in revenue, 17% average open rate and 5% click rate across node sale and testnet campaigns. Led end-to-end launch and GTM for House on Base/Farcaster, ran social calendars for three product pages, and drove UGC campaigns with 400+ video and thread submissions.",
@@ -78,6 +80,11 @@ export const projects = [
 ];
 
 export const writing: LinkItem[] = [
+  {
+    title: "Check blogs on Tiiny Host",
+    href: "https://tiiny.host/blog/author/krupali",
+    note: "Tiiny Host",
+  },
   {
     title: "Huddle01: The real-time connectivity network",
     href: "https://x.com/huddle01com/status/1894054341696516430",
@@ -150,11 +157,6 @@ export const publications: LinkItem[] = [
     title: "Gossips with Chai",
     href: "https://gossipswithchai.substack.com/",
     note: "Personal essays",
-  },
-  {
-    title: "Musings with Chai",
-    href: "https://open.spotify.com/show/2fu6mUmeHrceSU6oBphVSA",
-    note: "Voice-only podcast",
   },
 ];
 

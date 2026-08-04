@@ -47,9 +47,24 @@ function Home() {
       </header>
 
       <section className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32">
+        <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
+          <h2 className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl">
+            Recent Writing
+          </h2>
+          <Link
+            to="/writing"
+            className="border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
+          >
+            The full archive
+          </Link>
+        </div>
+        <LinkIndex items={writing.slice(0, 4)} />
+      </section>
+
+      <section className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32">
         <div className="mb-16 flex items-baseline justify-between">
           <h2 className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl">
-            Selected Projects
+            Had fun building:
           </h2>
           <span className="text-sm font-medium opacity-40">01 — 02</span>
         </div>
@@ -101,20 +116,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32">
-        <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
-          <h2 className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl">
-            Recent Writing
-          </h2>
-          <Link
-            to="/writing"
-            className="border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
-          >
-            The full archive
-          </Link>
-        </div>
-        <LinkIndex items={writing.slice(0, 4)} />
-      </section>
 
       <section className="bg-ink px-6 py-24 text-paper md:px-12 md:py-32">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
