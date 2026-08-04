@@ -6,7 +6,7 @@ export const profile = {
   tagline: "Tech. Writing. Yapping.",
   intro:
     "Growth marketer and technical content strategist working across Web3, AI, Cloud and SaaS. I turn complicated systems into words everyone can actually understand.",
-  currently: "Freelance technical writing, content strategy and growth — open to new work",
+  currently: "Focusing on Personal Brand",
   email: "krupalitrivedi2002@gmail.com",
   linkedin: "https://www.linkedin.com/in/krupalitrivedi/",
   twitter: "https://x.com/chai_really",
