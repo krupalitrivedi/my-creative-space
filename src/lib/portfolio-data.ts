@@ -5,7 +5,7 @@ export const profile = {
   mark: "AC&W",
   tagline: "Tech. Writing. Yapping.",
   intro:
-    "Growth marketer and technical content strategist working across Web3, AI, Cloud and SaaS. I turn complicated systems into words everyone can actually understand.",
+    "Growth marketer and technical content strategist working across SaaS, Cloud, AI, Blockchain and everything tech. I turn complicated systems into words everyone can actually understand.",
   currently: "Focusing on Personal Brand",
   email: "krupalitrivedi2002@gmail.com",
   linkedin: "https://www.linkedin.com/in/krupalitrivedi/",
@@ -67,7 +67,7 @@ export const projects = [
   {
     kind: "Internal AI Tool / 2025",
     title: "HUDDLE01 CONTENT STUDIO",
-    body: "A central content engine for the Huddle01 team — marketing blogs, emails, social copy and cold outreach, generated from a shared knowledge base with SEO keyword integration built in.",
+    body: "A central content engine for the Huddle01 team for marketing blogs, emails, social copy and cold outreach, generated from a shared knowledge base with SEO keyword integration built in.",
     stack: "Claude API · Next.js · Postgres · pm2 · Huddle01 Cloud VMs",
     href: "https://huddle01.com/blog",
   },
