@@ -158,11 +158,6 @@ export const publications: LinkItem[] = [
     href: "https://gossipswithchai.substack.com/",
     note: "Personal essays",
   },
-  {
-    title: "Musings with Chai",
-    href: "https://open.spotify.com/show/2fu6mUmeHrceSU6oBphVSA",
-    note: "Voice-only podcast",
-  },
 ];
 
 export const skills = {
