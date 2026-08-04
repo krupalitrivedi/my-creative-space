@@ -20,7 +20,7 @@ export const profile = {
 
 export const experience = [
   {
-    period: "Jul 2025 — Jun 2026",
+    period: "Jul 2025 — Jul 2026",
     role: "Growth Lead",
     org: "Huddle01",
     body: "Activated email marketing as a distribution and revenue channel — $20k+ in revenue, 17% average open rate and 5% click rate across node sale and testnet campaigns. Led end-to-end launch and GTM for House on Base/Farcaster, ran social calendars for three product pages, and drove UGC campaigns with 400+ video and thread submissions.",
