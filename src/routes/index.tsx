@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { profile, projects, writing, publications } from "@/lib/portfolio-data";
 import { LinkIndex } from "@/components/link-index";
+import { Reveal } from "@/components/reveal";
+import { seo, siteUrl } from "@/lib/seo";
 import contentStudio from "@/assets/content-studio.jpg";
 import peer2venue from "@/assets/peer2venue.jpg";
 
@@ -8,17 +10,27 @@ const title = "Krupali Trivedi — Technical Writer & Growth Marketer";
 const description =
   "Portfolio of Krupali Trivedi: technical writing, content strategy and growth marketing across Web3, AI and SaaS.";
 
+/** Person schema so search engines can attribute the work to a real profile. */
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: siteUrl,
+  email: `mailto:${profile.email}`,
+  jobTitle: "Technical Writer & Growth Marketer",
+  description: profile.intro,
+  sameAs: profile.socials.map((s) => s.href),
+};
+
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => {
+    const { meta, links } = seo({ title, description, path: "/" });
+    return {
+      meta,
+      links,
+      scripts: [{ type: "application/ld+json", children: JSON.stringify(personSchema) }],
+    };
+  },
   component: Home,
 });
 
@@ -31,8 +43,9 @@ function Home() {
         <span className="mb-6 block text-xs font-medium uppercase tracking-[0.25em] text-ink/40">
           {profile.name} — {profile.tagline}
         </span>
-        <h1 className="font-display text-[15vw] font-semibold uppercase leading-[0.85] tracking-tighter">
-
+        {/* clamp() stops the display type from running past ~16rem on ultrawide
+            screens while keeping the fluid scale on phones. */}
+        <h1 className="font-display text-[clamp(3.5rem,15vw,16rem)] font-semibold uppercase leading-[0.85] tracking-tighter">
           A Code <br /> &amp; A Word
         </h1>
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-12">
@@ -46,14 +59,20 @@ function Home() {
         </div>
       </header>
 
-      <section className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32">
+      <section
+        aria-labelledby="recent-writing"
+        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
+      >
         <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
-          <h2 className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl">
+          <h2
+            id="recent-writing"
+            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
+          >
             Recent Writing
           </h2>
           <Link
             to="/writing"
-            className="border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
+            className="border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
           >
             The full archive
           </Link>
@@ -61,24 +80,36 @@ function Home() {
         <LinkIndex items={writing.slice(0, 4)} />
       </section>
 
-      <section className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32">
+      <section
+        aria-labelledby="selected-work"
+        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
+      >
         <div className="mb-16 flex items-baseline justify-between">
-          <h2 className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl">
+          <h2
+            id="selected-work"
+            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
+          >
             Had fun building:
           </h2>
-          <span className="text-sm font-medium opacity-40">01 — 02</span>
+          <span className="text-sm font-medium opacity-40">
+            01 — {String(projects.length).padStart(2, "0")}
+          </span>
         </div>
 
         <div className="space-y-32 md:space-y-48">
           {projects.map((project, i) => {
             const flipped = i % 2 === 1;
             return (
-              <div key={project.title} className="grid grid-cols-1 items-start gap-8 md:grid-cols-12">
+              <Reveal
+                key={project.title}
+                className="grid grid-cols-1 items-start gap-8 md:grid-cols-12"
+              >
                 <div className={flipped ? "order-1 md:order-2 md:col-span-8" : "md:col-span-8"}>
                   <img
                     src={projectImages[i]}
-                    alt={`${project.title} preview`}
+                    alt={`${project.title} — ${project.kind}`}
                     loading="lazy"
+                    decoding="async"
                     width={1200}
                     height={800}
                     className="w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
@@ -89,7 +120,7 @@ function Home() {
                     flipped ? "order-2 pt-4 md:order-1 md:col-span-4" : "pt-4 md:col-span-4"
                   }
                 >
-                  <span className="mb-4 block text-xs font-medium uppercase tracking-widest text-accent">
+                  <span className="mb-4 block text-xs font-medium uppercase tracking-widest text-brand">
                     {project.kind}
                   </span>
                   <h3 className="mb-6 font-display text-2xl font-semibold tracking-tight md:text-3xl">
@@ -104,23 +135,29 @@ function Home() {
                       href={project.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-accent hover:text-accent"
+                      aria-label={`View work: ${project.title}`}
+                      className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
                     >
                       View work
                     </a>
                   ) : null}
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
       </section>
 
-
-      <section className="bg-ink px-6 py-24 text-paper md:px-12 md:py-32">
+      <section
+        aria-labelledby="where-i-publish"
+        className="bg-ink px-6 py-24 text-paper md:px-12 md:py-32"
+      >
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <h2 className="font-display text-4xl font-semibold uppercase leading-[0.9] tracking-tighter md:text-6xl">
+            <h2
+              id="where-i-publish"
+              className="font-display text-4xl font-semibold uppercase leading-[0.9] tracking-tighter md:text-6xl"
+            >
               Words are <br /> the whole <br /> product.
             </h2>
           </div>

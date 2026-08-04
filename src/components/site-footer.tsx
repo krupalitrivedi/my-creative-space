@@ -1,16 +1,23 @@
+import { useRouterState } from "@tanstack/react-router";
+
 import { profile } from "@/lib/portfolio-data";
 
 export function SiteFooter() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // The contact page already leads with the email address at display size;
+  // repeating it in the footer directly below reads as a mistake.
+  const showEmail = pathname !== "/contact";
+
   return (
     <footer id="contact" className="px-6 py-24 md:px-12">
       <div className="flex flex-col items-start justify-between gap-12 md:flex-row md:items-end">
-        <div>
+        <div hidden={!showEmail}>
           <span className="mb-6 block text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
             Get in touch
           </span>
           <a
             href={`mailto:${profile.email}`}
-            className="font-display text-2xl font-semibold tracking-tighter transition-colors hover:text-accent sm:text-4xl md:text-5xl"
+            className="font-display text-2xl font-semibold tracking-tighter transition-colors hover:text-brand sm:text-4xl md:text-5xl"
           >
             {profile.email}
           </a>

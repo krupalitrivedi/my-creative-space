@@ -133,7 +133,10 @@ export const writing: LinkItem[] = [
 ];
 
 export const threads: LinkItem[] = [
-  { title: "Media Nodes for beginners", href: "https://x.com/chai_really/status/1853510385657090229" },
+  {
+    title: "Media Nodes for beginners",
+    href: "https://x.com/chai_really/status/1853510385657090229",
+  },
   {
     title: "Starting out as an open source contributor",
     href: "https://x.com/chai_really/status/1604888301789331457",
@@ -151,12 +154,32 @@ export const threads: LinkItem[] = [
 
 export const publications: LinkItem[] = [
   { title: "A Code and A Word", href: "https://acodeandaword.com", note: "Technical blog" },
-  { title: "Tiiny Host", href: "https://tiiny.host/blog/author/krupali/", note: "Recent client work" },
+  {
+    title: "Tiiny Host",
+    href: "https://tiiny.host/blog/author/krupali/",
+    note: "Recent client work",
+  },
   { title: "Huddle01 Blog", href: "https://huddle01.com/blog", note: "Product & protocol writing" },
   {
     title: "Gossips with Chai",
     href: "https://gossipswithchai.substack.com/",
     note: "Personal essays",
+  },
+];
+
+/** The work Krupali takes on, surfaced on the contact page. */
+export const services = [
+  {
+    title: "Technical Writing & Docs",
+    body: "Product documentation, developer guides, API references and how-tos — written from the code and the conversations with the team that built it.",
+  },
+  {
+    title: "Editorial & Content Strategy",
+    body: "Content calendars, positioning and long-form narratives that give a technical product a voice people outside it can follow.",
+  },
+  {
+    title: "Growth & Lifecycle Marketing",
+    body: "Email as a revenue channel, launch and GTM campaigns, UGC programmes and the social distribution around them.",
   },
 ];
 

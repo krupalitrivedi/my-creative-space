@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteNav } from "../components/site-nav";
 import { SiteFooter } from "../components/site-footer";
-
+import { ogImage } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -88,7 +88,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Krupali Trivedi" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Krupali Trivedi" },
+      { property: "og:image", content: ogImage },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImage },
+      { name: "theme-color", content: "#1a1a1a" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -99,6 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;600;700&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
 
@@ -127,13 +132,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-paper font-sans text-ink selection:bg-accent selection:text-paper">
+      <div className="min-h-screen bg-paper font-sans text-ink selection:bg-brand selection:text-paper">
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <SiteNav />
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
+        <main id="main">
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </main>
         <SiteFooter />
       </div>
     </QueryClientProvider>
   );
 }
-

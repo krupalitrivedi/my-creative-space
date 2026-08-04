@@ -14,7 +14,7 @@ export function LinkIndex({ items }: { items: LinkItem[] }) {
           <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-ink/40 md:col-span-1">
             {String(i + 1).padStart(2, "0")}
           </span>
-          <span className="font-display text-xl font-semibold tracking-tight transition-colors group-hover:text-accent md:col-span-8 md:text-2xl">
+          <span className="font-display text-xl font-semibold tracking-tight transition-colors group-hover:text-brand md:col-span-8 md:text-2xl">
             {item.title}
           </span>
           <span className="text-xs font-medium uppercase tracking-widest text-ink/40 md:col-span-3 md:text-right">
