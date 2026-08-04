@@ -6,13 +6,15 @@ export const profile = {
   tagline: "Tech. Writing. Yapping.",
   intro:
     "Growth marketer and technical content strategist working across Web3, AI, Cloud and SaaS. I turn complicated systems into words everyone can actually understand.",
-  currently: "Growth Lead at Huddle01 — writing, marketing, and building small AI tools",
+  currently: "Freelance technical writing, content strategy and growth — open to new work",
   email: "krupalitrivedi2002@gmail.com",
+  linkedin: "https://www.linkedin.com/in/krupalitrivedi/",
+  twitter: "https://x.com/chai_really",
   socials: [
     { title: "X (Twitter)", href: "https://x.com/chai_really" },
+    { title: "LinkedIn", href: "https://www.linkedin.com/in/krupalitrivedi/" },
     { title: "Blog", href: "https://acodeandaword.com/" },
     { title: "Telegram", href: "https://t.me/krupalitrivedi" },
-    { title: "Podcast", href: "https://open.spotify.com/show/2fu6mUmeHrceSU6oBphVSA" },
   ] as LinkItem[],
 };
 
