@@ -23,7 +23,13 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --color-paper: var(--paper);
   --color-ink: var(--ink);
-  --color-accent: var(--accent-color);
+  /*
+   * The editorial brand colour. It deliberately does NOT reuse the `accent`
+   * name: shadcn/ui also registers `--color-accent` (a near-white hover
+   * surface) further down this block, and the later declaration wins, which
+   * silently washed out every branded highlight on the site.
+   */
+  --color-brand: var(--brand);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -71,7 +77,7 @@
   --radius: 0.25rem;
   --paper: oklch(0.993 0 0);
   --ink: oklch(0.145 0 0);
-  --accent-color: oklch(0.38 0.19 279.5);
+  --brand: oklch(0.38 0.19 279.5);
   --background: oklch(0.993 0 0);
   --foreground: oklch(0.145 0 0);
 
@@ -151,4 +157,56 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* A visible keyboard focus ring everywhere. The site is almost entirely
+     links, so the browser default disappearing under mix-blend-difference and
+     inverted sections left keyboard users with nothing to follow. */
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Inverted (ink) sections need a light ring instead. */
+  .bg-ink :focus-visible,
+  nav :focus-visible {
+    outline-color: var(--paper);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Off-screen until focused — the first tab stop on every page. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
