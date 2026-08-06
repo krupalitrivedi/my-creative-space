@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/ahrefs",
+      "destination": "https://ahrefs-portfolio-website.vercel.app/"
+    },
+    {
+      "source": "/ahrefs/:path*",
+      "destination": "https://ahrefs-portfolio-website.vercel.app/:path*"
+    }
+  ]
+}
