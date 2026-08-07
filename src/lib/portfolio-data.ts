@@ -236,6 +236,13 @@ export const writing: Article[] = [
     note: "Hashnode",
     topic: "Fundamentals",
   },
+  {
+    title: "Read articles written for Tiiny Host",
+    href: "https://tiiny.host/blog/author/krupali",
+    type: "Collection",
+    note: "Tiiny Host",
+    topic: "SEO",
+  },
 ];
 
 export type Thread = LinkItem & { account: string; topic: string };
