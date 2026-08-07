@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 
-import { writing, threads, publications, personalBlog } from "@/lib/portfolio-data";
+import { writing, threads, publications } from "@/lib/portfolio-data";
 import { LinkIndex } from "@/components/link-index";
 import { cn } from "@/lib/utils";
 import { seo } from "@/lib/seo";
@@ -131,29 +131,6 @@ function Writing() {
           Where I publish
         </h2>
         <LinkIndex items={publications} />
-      </section>
-
-      <section
-        aria-labelledby="personal-blog"
-        className="mt-16 border-t border-ink/10 pt-12 md:grid md:grid-cols-12 md:gap-8"
-      >
-        <div className="md:col-span-8">
-          <h2
-            id="personal-blog"
-            className="mb-4 font-display text-2xl font-semibold tracking-tight md:text-3xl"
-          >
-            {personalBlog.title}
-          </h2>
-          <p className="mb-8 max-w-xl leading-relaxed text-ink/70">{personalBlog.body}</p>
-          <a
-            href={personalBlog.href}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
-          >
-            {personalBlog.linkLabel} ↗
-          </a>
-        </div>
       </section>
     </div>
   );

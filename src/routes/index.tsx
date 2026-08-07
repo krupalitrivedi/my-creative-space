@@ -78,15 +78,12 @@ function Home() {
       </section>
 
       <section aria-labelledby="what-i-do" className="px-6 py-10 md:px-12 md:py-12">
-        <div className="mb-10 flex items-baseline justify-between">
-          <h2
-            id="what-i-do"
-            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
-          >
-            What I do
-          </h2>
-          <span className="text-sm font-medium opacity-40">{whatIDo.length} areas</span>
-        </div>
+        <h2
+          id="what-i-do"
+          className="mb-10 font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
+        >
+          What I do
+        </h2>
         <ul className="border-t border-ink/10">
           {whatIDo.map((area, i) => (
             <Reveal

@@ -280,14 +280,12 @@ export const publications: LinkItem[] = [
     href: "https://gossipswithchai.substack.com/",
     note: "Non-technical writing",
   },
+  {
+    title: "A little bit on Twitter",
+    href: "https://x.com/chai_really/highlights",
+    note: "Highlights",
+  },
 ];
-
-export const personalBlog = {
-  title: "Musings with Chai, the blog",
-  body: "A non-tech personal blog where I write stories and experiences from life.",
-  href: "https://gossipswithchai.substack.com/",
-  linkLabel: "Read on Substack",
-};
 
 export const skills = {
   craft: [
