@@ -57,10 +57,7 @@ function Home() {
         </div>
       </header>
 
-      <section
-        aria-label="By the numbers"
-        className="border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
-      >
+      <section aria-label="By the numbers" className="px-6 py-10 md:px-12 md:py-12">
         <dl className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
           {stats.map((stat) => (
             <div key={stat.label}>
@@ -81,10 +78,7 @@ function Home() {
         </dl>
       </section>
 
-      <section
-        aria-labelledby="what-i-do"
-        className="border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
-      >
+      <section aria-labelledby="what-i-do" className="px-6 py-10 md:px-12 md:py-12">
         <div className="mb-10 flex items-baseline justify-between">
           <h2
             id="what-i-do"
@@ -113,10 +107,7 @@ function Home() {
         </ul>
       </section>
 
-      <section
-        aria-labelledby="recent-writing"
-        className="border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
-      >
+      <section aria-labelledby="recent-writing" className="px-6 py-10 md:px-12 md:py-12">
         <div className="mb-10 flex flex-wrap items-baseline justify-between gap-4">
           <h2
             id="recent-writing"
