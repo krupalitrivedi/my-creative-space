@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   return (
-    <div className="px-6 pb-24 pt-28 md:px-12 md:pt-32">
+    <div className="px-6 pb-8 pt-28 md:px-12 md:pb-10 md:pt-32">
       <h1 className="font-display text-[clamp(2.25rem,7vw,6rem)] font-semibold uppercase leading-[0.9] tracking-tighter">
         You&apos;ve come <br /> far, thank you!
       </h1>
