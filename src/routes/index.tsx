@@ -121,8 +121,7 @@ function Home() {
           </div>
           <div className="md:col-span-6 md:col-start-7">
             <p className="mb-12 text-xl font-light leading-relaxed opacity-80 md:text-2xl">
-              I write about technology for people who don&apos;t live inside it — blogs, docs,
-              threads, emails and the occasional podcast episode.
+              I write about SaaS, cloud and blockchain. Sometimes I write for fun too!
             </p>
             <ul className="divide-y divide-paper/10 border-y border-paper/10">
               {publications.map((p) => (

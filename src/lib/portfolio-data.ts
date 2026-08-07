@@ -23,7 +23,6 @@ export const profile = {
   socials: [
     { title: "X (Twitter)", href: "https://x.com/chai_really" },
     { title: "LinkedIn", href: "https://www.linkedin.com/in/krupalitrivedi/" },
-    { title: "Blog", href: "https://acodeandaword.com/" },
     { title: "Telegram", href: "https://t.me/krupalitrivedi" },
   ] as LinkItem[],
 };
@@ -266,11 +265,6 @@ export const threads: Thread[] = [
 ];
 
 export const publications: LinkItem[] = [
-  {
-    title: "A Code and A Word",
-    href: "https://acodeandaword.com",
-    note: "Technical blog",
-  },
   {
     title: "Huddle01 Blog",
     href: "https://huddle01.com/blog",
