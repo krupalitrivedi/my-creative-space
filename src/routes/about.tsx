@@ -14,7 +14,7 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <div className="pb-24 pt-40 md:pt-48">
+    <div className="pb-24 pt-28 md:pt-32">
       <div className="px-6 md:px-12">
         <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter md:text-[clamp(3rem,10vw,13rem)]">
           Krupali <br /> Trivedi

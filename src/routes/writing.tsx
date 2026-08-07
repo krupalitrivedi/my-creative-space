@@ -29,7 +29,7 @@ function Writing() {
   );
 
   return (
-    <div className="px-6 pb-24 pt-40 md:px-12 md:pt-48">
+    <div className="px-6 pb-24 pt-28 md:px-12 md:pt-32">
       <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter">
         The Archive
       </h1>

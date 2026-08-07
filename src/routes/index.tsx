@@ -40,7 +40,7 @@ const projectImages = [contentStudio, peer2venue];
 function Home() {
   return (
     <div>
-      <header className="flex min-h-screen flex-col justify-end px-6 pb-24 pt-32 md:px-12">
+      <header className="flex flex-col justify-end px-6 pb-24 pt-32 md:px-12 md:pb-32">
         <span className="mb-6 block text-xs font-medium uppercase tracking-[0.25em] text-ink/40">
           {profile.name} — {profile.tagline} — {profile.period}
         </span>
