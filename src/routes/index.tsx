@@ -1,13 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  profile,
-  projects,
-  writing,
-  publications,
-  stats,
-  whatIDo,
-  highlight,
-} from "@/lib/portfolio-data";
+import { profile, projects, writing, publications, stats, whatIDo } from "@/lib/portfolio-data";
 import { LinkIndex } from "@/components/link-index";
 import { Reveal } from "@/components/reveal";
 import { seo, siteUrl } from "@/lib/seo";
@@ -52,17 +44,16 @@ function Home() {
         <span className="mb-6 block text-xs font-medium uppercase tracking-[0.25em] text-ink/40">
           {profile.name} — {profile.tagline} — {profile.period}
         </span>
-        {/* clamp() stops the display type from running past ~16rem on ultrawide
+        {/* clamp() stops the display type from running past ~11rem on ultrawide
             screens while keeping the fluid scale on phones. */}
-        <h1 className="font-display text-[clamp(3.5rem,15vw,16rem)] font-semibold uppercase leading-[0.85] tracking-tighter">
+        <h1 className="font-display text-[clamp(3rem,11vw,11rem)] font-semibold uppercase leading-[0.85] tracking-tighter">
           A Code <br /> &amp; A Word
         </h1>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
-          <p className="text-xl font-light leading-tight md:col-span-5 md:text-2xl">
+          <p className="text-xl font-light leading-tight md:col-span-6 md:text-2xl">
             {profile.intro}
           </p>
-          <p className="leading-relaxed text-ink/70 md:col-span-4">{profile.introSecondary}</p>
-          <div className="flex flex-col justify-end md:col-span-3">
+          <div className="flex flex-col justify-end md:col-span-4 md:col-start-9">
             <span className="mb-2 text-xs uppercase tracking-[0.2em] text-ink/40">
               {profile.currentlyLabel}
             </span>
@@ -108,53 +99,23 @@ function Home() {
           </h2>
           <span className="text-sm font-medium opacity-40">{whatIDo.length} areas</span>
         </div>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
+        <ul className="border-t border-ink/10">
           {whatIDo.map((area, i) => (
-            <Reveal key={area.title} delay={i * 60}>
-              <span className="mb-4 block text-[10px] font-medium uppercase tracking-[0.2em] text-brand">
+            <Reveal
+              as="li"
+              key={area}
+              delay={i * 60}
+              className="flex items-baseline gap-6 border-b border-ink/10 py-6 md:gap-10"
+            >
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mb-3 font-display text-xl font-semibold tracking-tight md:text-2xl">
-                {area.title}
+              <h3 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+                {area}
               </h3>
-              <p className="leading-relaxed text-ink/70">{area.body}</p>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      <section
-        aria-labelledby="highlight"
-        className="bg-ink px-6 py-24 text-paper md:px-12 md:py-32"
-      >
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <span className="mb-6 block text-xs font-medium uppercase tracking-[0.2em] opacity-40">
-              {highlight.kicker} — {highlight.org}
-            </span>
-            <h2
-              id="highlight"
-              className="font-display text-4xl font-semibold uppercase leading-[0.9] tracking-tighter md:text-5xl"
-            >
-              {highlight.title}
-            </h2>
-          </div>
-          <div className="md:col-span-6 md:col-start-7">
-            {highlight.body.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)} className="mb-6 leading-relaxed opacity-80">
-                {paragraph}
-              </p>
-            ))}
-            <blockquote className="mt-12 border-t border-paper/10 pt-8">
-              <p className="font-display text-xl font-semibold leading-tight tracking-tight md:text-2xl">
-                “{highlight.quote}”
-              </p>
-              <footer className="mt-4 text-[10px] uppercase tracking-[0.2em] opacity-50">
-                {highlight.attribution}
-              </footer>
-            </blockquote>
-          </div>
-        </div>
+        </ul>
       </section>
 
       <section

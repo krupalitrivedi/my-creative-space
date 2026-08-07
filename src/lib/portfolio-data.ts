@@ -37,32 +37,12 @@ export const stats = [
 ];
 
 export const whatIDo = [
-  {
-    title: "Growth and Marketing",
-    body: "Worked as a growth and marketing lead, managing the content strategy for different social media platforms like Reddit, X, LinkedIn and Instagram. Also managed end to end email marketing, driving revenue from them.",
-  },
-  {
-    title: "Technical writing and SEO",
-    body: "Writing blogs, docs, threads and guides about SaaS, AI and blockchain.",
-  },
-  {
-    title: "Build things",
-    body: "Love to build different things. Have worked on different internal tools that help create content for company's employees and also other side projects.",
-  },
+  "Growth and Marketing",
+  "Technical writing and SEO",
+  "Build things",
+  "Drink Matcha",
+  "Read Books",
 ];
-
-export const highlight = {
-  kicker: "Highlight",
-  title: "Turning email into a revenue channel",
-  org: "Huddle01",
-  body: [
-    "Email wasn't being used as distribution. I activated it end to end, covering strategy, copy, segmentation and campaign management around Node Sales and Testnet activity, and turned it into a channel that pays for itself.",
-    "Alongside it I ran the end-to-end launch of House, Huddle01's product on Base/Farcaster: social calendar, launch videos and GTM direction, plus “in-house conversations” interviewing builders on Farcaster and Base to pull real feedback into the product.",
-  ],
-  quote:
-    "I enjoy working around words and helping shape everything complicated into something everyone can understand.",
-  attribution: "Krupali Trivedi · Growth Lead, Huddle01",
-};
 
 export type ExperienceItem = {
   role: string;
