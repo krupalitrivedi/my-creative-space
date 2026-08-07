@@ -11,7 +11,7 @@ export const profile = {
   mark: "AC&W",
   tagline: "Growth + Content",
   intro:
-    "A little bit of content, a little bit of tech, and a lot of marketing. I am an engineer turned marketer because I realized I loved people and showcasing products to people more than building them.",
+    "A little bit of content, a little bit of tech and a lot of marketing. Engineer turned marketer who loves to build, talk about and tinker around with products and tech.",
   introSecondary:
     "I have worked at and with SaaS, Cloud and Blockchain companies to manage their content marketing. I love being chronically online, testing things out in public and building tools.",
   currentlyLabel: "Current rabbit holes",
@@ -32,7 +32,7 @@ export const stats = [
   { value: "$20k", unit: "+", label: "Revenue driven", note: "via email as a new channel" },
   { value: "17", unit: "%", label: "Avg. open rate", note: "on email campaigns" },
   { value: "5", unit: "%", label: "Avg. click rate", note: "across the same campaigns" },
-  { value: "6", unit: "yr", label: "Years writing", note: "technology, for humans" },
+  { value: "6", unit: "years", label: "Years writing", note: "technology, for humans" },
 ];
 
 export const whatIDo = [

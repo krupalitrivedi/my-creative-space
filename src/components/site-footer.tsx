@@ -9,7 +9,7 @@ export function SiteFooter() {
   const showContactRow = pathname !== "/contact";
 
   return (
-    <footer id="contact" className="px-6 py-12 md:px-12 md:py-16">
+    <footer id="contact" className="px-6 py-8 md:px-12 md:py-10">
       {showContactRow ? (
         <div className="flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 md:flex-row md:items-center">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink">
@@ -21,7 +21,7 @@ export function SiteFooter() {
       <div
         className={cn(
           "flex flex-col justify-between gap-2 sm:flex-row sm:items-center",
-          showContactRow ? "mt-10" : "border-t border-ink/10 pt-8",
+          showContactRow ? "mt-8" : "border-t border-ink/10 pt-8",
         )}
       >
         <p className="text-[10px] uppercase tracking-[0.3em] text-ink/60">
