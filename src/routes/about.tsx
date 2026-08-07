@@ -19,11 +19,9 @@ function About() {
         <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter md:text-[clamp(3rem,10vw,13rem)]">
           Krupali <br /> Trivedi
         </h1>
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
-          <p className="text-xl font-light leading-tight md:col-span-6 md:text-2xl">
-            {profile.introSecondary}
-          </p>
-          <p className="leading-relaxed text-ink/70 md:col-span-4 md:col-start-8">
+        <div className="mt-12 max-w-2xl space-y-6">
+          <p className="leading-relaxed text-ink/70">{profile.introSecondary}</p>
+          <p className="leading-relaxed text-ink/70">
             The tech space keeps growing and there&apos;s always something new to learn, and I love
             diving into new rabbit holes and experimenting.
           </p>
