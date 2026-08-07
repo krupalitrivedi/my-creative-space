@@ -5,8 +5,9 @@ import { profile } from "@/lib/portfolio-data";
 import { cn } from "@/lib/utils";
 
 const items = [
-  { to: "/writing", label: "Writing" },
-  { to: "/about", label: "About" },
+  { to: "/", label: "Home" },
+  { to: "/writing", label: "Writing Portfolio" },
+  { to: "/about", label: "Experience" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
