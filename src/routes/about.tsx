@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { experience, skills } from "@/lib/portfolio-data";
+import { experience, skills, education, profile } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/reveal";
 import { seo } from "@/lib/seo";
 
 const title = "About — Krupali Trivedi";
 const description =
-  "The professional journey of Krupali Trivedi: growth lead, technical writer and content strategist across Huddle01, Layer-E and freelance work.";
+  "An engineer turned marketer. Nine roles across Huddle01, Tiiny Host, Layer-E and freelance technical writing, from 2020 to present.";
 
 export const Route = createFileRoute("/about")({
   head: () => seo({ title, description, path: "/about", type: "profile" }),
@@ -17,20 +17,23 @@ function About() {
     <div className="pb-24 pt-40 md:pt-48">
       <div className="px-6 md:px-12">
         <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter md:text-[clamp(3rem,10vw,13rem)]">
-          Know me <br /> a little bit
+          Hello, <br /> I&apos;m Krupali
         </h1>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
           <p className="text-xl font-light leading-tight md:col-span-6 md:text-2xl">
-            I write about everything related to technology. I&apos;ve always enjoyed diving into
-            projects, talking to the teams behind them, and then explaining what they built in a
-            form everyone can follow.
+            {profile.intro}
           </p>
-          <p className="leading-relaxed text-ink/70 md:col-span-4 md:col-start-8">
-            Somewhere between writing, reading, recording voice-only podcasts and being
-            philosophical at times, I became a marketer who likes to build — including internal AI
-            tools that streamline how content gets made. B.Tech in Computer Science, Indus
-            University.
-          </p>
+          <div className="md:col-span-4 md:col-start-8">
+            <p className="leading-relaxed text-ink/70">{profile.introSecondary}</p>
+            <p className="mt-6 leading-relaxed text-ink/70">
+              The tech space keeps growing and there&apos;s always something new to learn, and I
+              love diving into new rabbit holes and experimenting.
+            </p>
+            <p className="mt-6 text-sm">
+              <span className="text-ink/40">{profile.currentlyLabel}: </span>
+              <span className="font-medium">{profile.currently}</span>
+            </p>
+          </div>
         </div>
       </div>
 
@@ -38,12 +41,18 @@ function About() {
         aria-labelledby="journey"
         className="mt-24 border-t border-ink/10 px-6 py-24 md:px-12"
       >
-        <h2
-          id="journey"
-          className="mb-16 font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
-        >
-          Professional Journey
-        </h2>
+        <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
+          <h2
+            id="journey"
+            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
+          >
+            Experience
+          </h2>
+          <span className="text-sm font-medium opacity-40">
+            {experience.length} roles · {profile.period}
+          </span>
+        </div>
+
         <div className="border-t border-ink/10">
           {experience.map((item) => (
             <Reveal
@@ -56,10 +65,58 @@ function About() {
               <div className="md:col-span-4">
                 <h3 className="font-display text-xl font-semibold tracking-tight">{item.role}</h3>
                 <p className="text-sm uppercase tracking-widest text-ink/40">{item.org}</p>
+                {item.note ? (
+                  <p className="mt-2 text-xs uppercase tracking-widest text-ink/40">
+                    ({item.note})
+                  </p>
+                ) : null}
               </div>
-              <p className="leading-relaxed text-ink/70 md:col-span-5">{item.body}</p>
+              <div className="md:col-span-5">
+                <p className="leading-relaxed text-ink/70">{item.body}</p>
+                {item.points ? (
+                  <ul className="mt-4 space-y-2">
+                    {item.points.map((point) => (
+                      <li
+                        key={point}
+                        className="relative pl-5 leading-relaxed text-ink/70 before:absolute before:left-0 before:top-[0.6em] before:h-1 before:w-1 before:rounded-full before:bg-brand"
+                      >
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+                {item.tags ? (
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {item.tags.map((tag) => (
+                      <li
+                        key={tag}
+                        className="border border-ink/15 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-ink/60"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-16">
+          <h2 className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
+            Education
+          </h2>
+          <div className="grid grid-cols-1 gap-4 border-t border-ink/10 pt-8 md:grid-cols-12 md:gap-8">
+            <span className="text-xs font-medium uppercase tracking-widest text-brand md:col-span-3">
+              {education.period}
+            </span>
+            <div className="md:col-span-9">
+              <h3 className="font-display text-xl font-semibold tracking-tight">
+                {education.degree}
+              </h3>
+              <p className="text-sm uppercase tracking-widest text-ink/40">{education.org}</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -73,7 +130,7 @@ function About() {
           </h2>
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:col-span-6 md:col-start-7">
             <div>
-              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] opacity-40">Craft</h3>
+              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] opacity-40">Skills</h3>
               <ul className="space-y-2 text-sm font-medium uppercase tracking-wider">
                 {skills.craft.map((s) => (
                   <li key={s}>{s}</li>
@@ -81,7 +138,9 @@ function About() {
               </ul>
             </div>
             <div>
-              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] opacity-40">Technology</h3>
+              <h3 className="mb-4 text-xs uppercase tracking-[0.2em] opacity-40">
+                Technologies &amp; tools
+              </h3>
               <ul className="space-y-2 text-sm font-medium uppercase tracking-wider">
                 {skills.tech.map((s) => (
                   <li key={s}>{s}</li>

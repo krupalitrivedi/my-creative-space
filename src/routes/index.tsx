@@ -1,14 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { profile, projects, writing, publications } from "@/lib/portfolio-data";
+import {
+  profile,
+  projects,
+  writing,
+  publications,
+  stats,
+  whatIDo,
+  highlight,
+} from "@/lib/portfolio-data";
 import { LinkIndex } from "@/components/link-index";
 import { Reveal } from "@/components/reveal";
 import { seo, siteUrl } from "@/lib/seo";
 import contentStudio from "@/assets/content-studio.jpg";
 import peer2venue from "@/assets/peer2venue.jpg";
 
-const title = "Krupali Trivedi — Technical Writer & Growth Marketer";
+const title = "Krupali Trivedi — Growth Marketer & Technical Content Strategist";
 const description =
-  "Portfolio of Krupali Trivedi: technical writing, content strategy and growth marketing across Web3, AI and SaaS.";
+  "A little bit of content, a little bit of tech, and a lot of marketing. Growth and technical content for SaaS, Cloud and Blockchain companies.";
 
 /** Person schema so search engines can attribute the work to a real profile. */
 const personSchema = {
@@ -17,7 +25,7 @@ const personSchema = {
   name: profile.name,
   url: siteUrl,
   email: `mailto:${profile.email}`,
-  jobTitle: "Technical Writer & Growth Marketer",
+  jobTitle: "Growth Marketer & Technical Content Strategist",
   description: profile.intro,
   sameAs: profile.socials.map((s) => s.href),
 };
@@ -34,6 +42,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+/** Only the first two projects have artwork; the third is writing, not a product. */
 const projectImages = [contentStudio, peer2venue];
 
 function Home() {
@@ -41,23 +50,189 @@ function Home() {
     <div>
       <header className="flex min-h-screen flex-col justify-end px-6 pb-24 pt-32 md:px-12">
         <span className="mb-6 block text-xs font-medium uppercase tracking-[0.25em] text-ink/40">
-          {profile.name} — {profile.tagline}
+          {profile.name} — {profile.tagline} — {profile.period}
         </span>
         {/* clamp() stops the display type from running past ~16rem on ultrawide
             screens while keeping the fluid scale on phones. */}
         <h1 className="font-display text-[clamp(3.5rem,15vw,16rem)] font-semibold uppercase leading-[0.85] tracking-tighter">
           A Code <br /> &amp; A Word
         </h1>
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-12">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
           <p className="text-xl font-light leading-tight md:col-span-5 md:text-2xl">
             {profile.intro}
           </p>
-          <div className="flex flex-col justify-end md:col-span-4 md:col-start-9">
-            <span className="mb-2 text-xs uppercase tracking-[0.2em] text-ink/40">Currently</span>
+          <p className="leading-relaxed text-ink/70 md:col-span-4">{profile.introSecondary}</p>
+          <div className="flex flex-col justify-end md:col-span-3">
+            <span className="mb-2 text-xs uppercase tracking-[0.2em] text-ink/40">
+              {profile.currentlyLabel}
+            </span>
             <p className="text-sm font-medium">{profile.currently}</p>
           </div>
         </div>
       </header>
+
+      <section
+        aria-label="By the numbers"
+        className="border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
+      >
+        <dl className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <dt className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-ink/40">
+                {stat.label}
+              </dt>
+              <dd>
+                <span className="font-display text-4xl font-semibold tracking-tighter md:text-5xl">
+                  {stat.value}
+                </span>
+                <span className="ml-1 font-display text-xl font-semibold text-brand">
+                  {stat.unit}
+                </span>
+                <span className="mt-2 block text-sm text-ink/60">{stat.note}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section
+        aria-labelledby="what-i-do"
+        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
+      >
+        <div className="mb-16 flex items-baseline justify-between">
+          <h2
+            id="what-i-do"
+            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
+          >
+            What I do
+          </h2>
+          <span className="text-sm font-medium opacity-40">{whatIDo.length} areas</span>
+        </div>
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
+          {whatIDo.map((area, i) => (
+            <Reveal key={area.title} delay={i * 60}>
+              <span className="mb-4 block text-[10px] font-medium uppercase tracking-[0.2em] text-brand">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-3 font-display text-xl font-semibold tracking-tight md:text-2xl">
+                {area.title}
+              </h3>
+              <p className="leading-relaxed text-ink/70">{area.body}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="highlight"
+        className="bg-ink px-6 py-24 text-paper md:px-12 md:py-32"
+      >
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <span className="mb-6 block text-xs font-medium uppercase tracking-[0.2em] opacity-40">
+              {highlight.kicker} — {highlight.org}
+            </span>
+            <h2
+              id="highlight"
+              className="font-display text-4xl font-semibold uppercase leading-[0.9] tracking-tighter md:text-5xl"
+            >
+              {highlight.title}
+            </h2>
+          </div>
+          <div className="md:col-span-6 md:col-start-7">
+            {highlight.body.map((paragraph) => (
+              <p key={paragraph.slice(0, 24)} className="mb-6 leading-relaxed opacity-80">
+                {paragraph}
+              </p>
+            ))}
+            <blockquote className="mt-12 border-t border-paper/10 pt-8">
+              <p className="font-display text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+                “{highlight.quote}”
+              </p>
+              <footer className="mt-4 text-[10px] uppercase tracking-[0.2em] opacity-50">
+                {highlight.attribution}
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="selected-work"
+        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
+      >
+        <div className="mb-16 flex items-baseline justify-between">
+          <h2
+            id="selected-work"
+            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
+          >
+            Had fun building:
+          </h2>
+          <span className="text-sm font-medium opacity-40">{projects.length} shipped</span>
+        </div>
+
+        <div className="space-y-32 md:space-y-48">
+          {projects.map((project, i) => {
+            const image = projectImages[i];
+            const flipped = i % 2 === 1;
+            return (
+              <Reveal
+                key={project.title}
+                className="grid grid-cols-1 items-start gap-8 md:grid-cols-12"
+              >
+                {image ? (
+                  <div className={flipped ? "order-1 md:order-2 md:col-span-8" : "md:col-span-8"}>
+                    <img
+                      src={image}
+                      alt={`${project.title} preview`}
+                      loading="lazy"
+                      decoding="async"
+                      width={1200}
+                      height={800}
+                      className="w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
+                    />
+                  </div>
+                ) : null}
+                <div
+                  className={
+                    image
+                      ? flipped
+                        ? "order-2 pt-4 md:order-1 md:col-span-4"
+                        : "pt-4 md:col-span-4"
+                      : "md:col-span-8"
+                  }
+                >
+                  <h3 className="mb-6 font-display text-2xl font-semibold tracking-tight md:text-3xl">
+                    {project.title}
+                  </h3>
+                  <p className="mb-8 leading-relaxed text-ink/70">{project.body}</p>
+                  <ul className="mb-8 flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
+                      <li
+                        key={tech}
+                        className="border border-ink/15 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-ink/60"
+                      >
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                  {project.href ? (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${project.linkLabel ?? "View work"}: ${project.title}`}
+                      className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
+                    >
+                      {project.linkLabel ?? "View work"}
+                    </a>
+                  ) : null}
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
 
       <section
         aria-labelledby="recent-writing"
@@ -78,74 +253,6 @@ function Home() {
           </Link>
         </div>
         <LinkIndex items={writing.slice(0, 4)} />
-      </section>
-
-      <section
-        aria-labelledby="selected-work"
-        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
-      >
-        <div className="mb-16 flex items-baseline justify-between">
-          <h2
-            id="selected-work"
-            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
-          >
-            Had fun building:
-          </h2>
-          <span className="text-sm font-medium opacity-40">
-            01 — {String(projects.length).padStart(2, "0")}
-          </span>
-        </div>
-
-        <div className="space-y-32 md:space-y-48">
-          {projects.map((project, i) => {
-            const flipped = i % 2 === 1;
-            return (
-              <Reveal
-                key={project.title}
-                className="grid grid-cols-1 items-start gap-8 md:grid-cols-12"
-              >
-                <div className={flipped ? "order-1 md:order-2 md:col-span-8" : "md:col-span-8"}>
-                  <img
-                    src={projectImages[i]}
-                    alt={`${project.title} — ${project.kind}`}
-                    loading="lazy"
-                    decoding="async"
-                    width={1200}
-                    height={800}
-                    className="w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
-                  />
-                </div>
-                <div
-                  className={
-                    flipped ? "order-2 pt-4 md:order-1 md:col-span-4" : "pt-4 md:col-span-4"
-                  }
-                >
-                  <span className="mb-4 block text-xs font-medium uppercase tracking-widest text-brand">
-                    {project.kind}
-                  </span>
-                  <h3 className="mb-6 font-display text-2xl font-semibold tracking-tight md:text-3xl">
-                    {project.title}
-                  </h3>
-                  <p className="mb-6 leading-relaxed text-ink/70">{project.body}</p>
-                  <p className="mb-8 text-xs uppercase tracking-widest text-ink/40">
-                    {project.stack}
-                  </p>
-                  {project.href ? (
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`View work: ${project.title}`}
-                      className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
-                    >
-                      View work
-                    </a>
-                  ) : null}
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
       </section>
 
       <section
