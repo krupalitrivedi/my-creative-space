@@ -9,7 +9,7 @@ export function SiteFooter() {
   const showEmail = pathname !== "/contact";
 
   return (
-    <footer id="contact" className="px-6 py-24 md:px-12">
+    <footer id="contact" className="px-6 py-16 md:px-12 md:py-20">
       <div className="flex flex-col items-start justify-between gap-12 md:flex-row md:items-end">
         <div hidden={!showEmail}>
           <span className="mb-6 block text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
@@ -36,7 +36,7 @@ export function SiteFooter() {
           ))}
         </div>
       </div>
-      <div className="mt-24 flex flex-col justify-between gap-2 border-t border-ink/5 pt-8 sm:flex-row sm:items-center">
+      <div className="mt-16 flex flex-col justify-between gap-2 border-t border-ink/5 pt-8 sm:flex-row sm:items-center">
         <p className="text-[10px] uppercase tracking-[0.3em] text-ink/40">
           © {new Date().getFullYear()} Krupali Trivedi
         </p>

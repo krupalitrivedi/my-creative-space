@@ -38,7 +38,7 @@ function Writing() {
         different experience levels.
       </p>
 
-      <section aria-labelledby="articles" className="mt-24">
+      <section aria-labelledby="articles" className="mt-16">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
           <h2 id="articles" className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
             {writing.length} selected articles
@@ -93,7 +93,7 @@ function Writing() {
         </p>
       </section>
 
-      <section aria-labelledby="threads" className="mt-24">
+      <section aria-labelledby="threads" className="mt-16">
         <h2
           id="threads"
           className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40"
@@ -123,7 +123,7 @@ function Writing() {
         </div>
       </section>
 
-      <section aria-labelledby="publications" className="mt-24">
+      <section aria-labelledby="publications" className="mt-16">
         <h2
           id="publications"
           className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40"
@@ -135,7 +135,7 @@ function Writing() {
 
       <section
         aria-labelledby="personal-blog"
-        className="mt-24 border-t border-ink/10 pt-16 md:grid md:grid-cols-12 md:gap-8"
+        className="mt-16 border-t border-ink/10 pt-12 md:grid md:grid-cols-12 md:gap-8"
       >
         <div className="md:col-span-8">
           <h2

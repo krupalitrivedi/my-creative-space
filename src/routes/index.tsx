@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div>
-      <header className="flex flex-col justify-end px-6 pb-24 pt-32 md:px-12 md:pb-32">
+      <header className="flex flex-col justify-end px-6 pb-16 pt-28 md:px-12 md:pb-20 md:pt-32">
         <span className="mb-6 block text-xs font-medium uppercase tracking-[0.25em] text-ink/40">
           {profile.name} — {profile.tagline} — {profile.period}
         </span>
@@ -83,9 +83,9 @@ function Home() {
 
       <section
         aria-labelledby="what-i-do"
-        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
+        className="border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
       >
-        <div className="mb-16 flex items-baseline justify-between">
+        <div className="mb-10 flex items-baseline justify-between">
           <h2
             id="what-i-do"
             className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
@@ -115,9 +115,9 @@ function Home() {
 
       <section
         aria-labelledby="recent-writing"
-        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
+        className="border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
       >
-        <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
+        <div className="mb-10 flex flex-wrap items-baseline justify-between gap-4">
           <h2
             id="recent-writing"
             className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
@@ -136,7 +136,7 @@ function Home() {
 
       <section
         aria-labelledby="where-i-publish"
-        className="bg-ink px-6 py-24 text-paper md:px-12 md:py-32"
+        className="bg-ink px-6 py-16 text-paper md:px-12 md:py-20"
       >
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">

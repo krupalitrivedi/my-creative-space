@@ -35,9 +35,9 @@ function About() {
 
       <section
         aria-labelledby="journey"
-        className="mt-24 border-t border-ink/10 px-6 py-24 md:px-12"
+        className="mt-16 border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
       >
-        <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
+        <div className="mb-10 flex flex-wrap items-baseline justify-between gap-4">
           <h2
             id="journey"
             className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
@@ -101,9 +101,9 @@ function About() {
 
       <section
         aria-labelledby="selected-work"
-        className="border-t border-ink/10 px-6 py-24 md:px-12 md:py-32"
+        className="border-t border-ink/10 px-6 py-16 md:px-12 md:py-20"
       >
-        <div className="mb-16 flex items-baseline justify-between">
+        <div className="mb-10 flex items-baseline justify-between">
           <h2
             id="selected-work"
             className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
@@ -113,7 +113,7 @@ function About() {
           <span className="text-sm font-medium opacity-40">{projects.length} shipped</span>
         </div>
 
-        <div className="space-y-32 md:space-y-48">
+        <div className="space-y-20 md:space-y-28">
           {projects.map((project, i) => {
             const image = projectImages[i];
             const flipped = i % 2 === 1;
@@ -176,7 +176,7 @@ function About() {
         </div>
       </section>
 
-      <section aria-labelledby="toolkit" className="bg-ink px-6 py-24 text-paper md:px-12">
+      <section aria-labelledby="toolkit" className="bg-ink px-6 py-16 text-paper md:px-12 md:py-20">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <h2
             id="toolkit"
