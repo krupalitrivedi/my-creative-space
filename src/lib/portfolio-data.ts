@@ -11,7 +11,7 @@ export const profile = {
   mark: "AC&W",
   tagline: "Growth + Content",
   intro:
-    "A little bit of content, a little bit of tech, and a lot of marketing. I am an engineer turned marketer because I realized I loved people and showcasing products to people more than building them.",
+    "A little bit of content, a little bit of tech and a lot of marketing. Engineer turned marketer who loves to build, talk about and tinker around with products and tech.",
   introSecondary:
     "I have worked at and with SaaS, Cloud and Blockchain companies to manage their content marketing. I love being chronically online, testing things out in public and building tools.",
   currentlyLabel: "Current rabbit holes",
