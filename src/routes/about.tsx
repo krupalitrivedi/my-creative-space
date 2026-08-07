@@ -17,23 +17,16 @@ function About() {
     <div className="pb-24 pt-40 md:pt-48">
       <div className="px-6 md:px-12">
         <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter md:text-[clamp(3rem,10vw,13rem)]">
-          Hello, <br /> I&apos;m Krupali
+          Krupali <br /> Trivedi
         </h1>
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
           <p className="text-xl font-light leading-tight md:col-span-6 md:text-2xl">
-            {profile.intro}
+            {profile.introSecondary}
           </p>
-          <div className="md:col-span-4 md:col-start-8">
-            <p className="leading-relaxed text-ink/70">{profile.introSecondary}</p>
-            <p className="mt-6 leading-relaxed text-ink/70">
-              The tech space keeps growing and there&apos;s always something new to learn, and I
-              love diving into new rabbit holes and experimenting.
-            </p>
-            <p className="mt-6 text-sm">
-              <span className="text-ink/40">{profile.currentlyLabel}: </span>
-              <span className="font-medium">{profile.currently}</span>
-            </p>
-          </div>
+          <p className="leading-relaxed text-ink/70 md:col-span-4 md:col-start-8">
+            The tech space keeps growing and there&apos;s always something new to learn, and I love
+            diving into new rabbit holes and experimenting.
+          </p>
         </div>
       </div>
 
