@@ -12,7 +12,18 @@ const items = [
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // Past the first scroll the bar needs its own background: it is fixed over
+  // the page, and mix-blend-difference alone leaves the wordmark colliding
+  // with whatever text scrolls beneath it.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Close the menu on navigation, and never leave the page scroll-locked.
   useEffect(() => {
@@ -38,22 +49,35 @@ export function SiteNav() {
       <nav
         aria-label="Primary"
         className={cn(
-          "fixed top-0 z-50 flex w-full items-end justify-between px-6 py-8 md:px-12",
-          // mix-blend-difference keeps the nav legible over both the paper and
-          // ink sections, but it has to be dropped while the mobile panel is
-          // open or the panel inverts the nav on top of itself.
-          open ? "text-paper" : "mix-blend-difference",
+          "fixed top-0 z-50 flex w-full items-center justify-between px-6 transition-[background-color,padding] duration-300 md:px-12",
+          // At the top of the page the bar is transparent and
+          // mix-blend-difference keeps it legible over both the paper and ink
+          // sections. Once scrolled it gets a solid background instead, which
+          // is what stops content colliding with the wordmark. The blend mode
+          // is also dropped while the mobile panel is open, or the panel
+          // inverts the nav on top of itself.
+          open && "py-8 text-paper",
+          !open && scrolled && "border-b border-ink/10 bg-paper py-5 text-ink",
+          !open && !scrolled && "py-8 mix-blend-difference",
         )}
       >
         <Link
           to="/"
-          className="font-display text-xl font-semibold tracking-tighter text-paper"
+          className={cn(
+            "font-display text-xl font-semibold tracking-tighter",
+            !open && scrolled ? "text-ink" : "text-paper",
+          )}
           aria-label={`${profile.name} — home`}
         >
           {profile.mark}
         </Link>
 
-        <div className="hidden gap-6 text-xs font-medium uppercase tracking-widest text-paper md:flex md:gap-8 md:text-sm">
+        <div
+          className={cn(
+            "hidden gap-6 text-xs font-medium uppercase tracking-widest md:flex md:gap-8 md:text-sm",
+            !open && scrolled ? "text-ink" : "text-paper",
+          )}
+        >
           {items.map((item) => {
             const active = pathname === item.to;
             return (
@@ -63,7 +87,11 @@ export function SiteNav() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "border-b pb-1 transition-opacity hover:opacity-60",
-                  active ? "border-paper" : "border-transparent",
+                  active
+                    ? !open && scrolled
+                      ? "border-ink"
+                      : "border-paper"
+                    : "border-transparent",
                 )}
               >
                 {item.label}
@@ -77,7 +105,10 @@ export function SiteNav() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          className="text-xs font-medium uppercase tracking-widest text-paper md:hidden"
+          className={cn(
+            "text-xs font-medium uppercase tracking-widest md:hidden",
+            !open && scrolled ? "text-ink" : "text-paper",
+          )}
         >
           {open ? "Close" : "Menu"}
         </button>
@@ -99,7 +130,11 @@ export function SiteNav() {
                   aria-current={active ? "page" : undefined}
                   className={cn(
                     "inline-block border-b-2 pb-1 font-display text-5xl font-semibold uppercase tracking-tighter",
-                    active ? "border-paper" : "border-transparent",
+                    active
+                      ? !open && scrolled
+                        ? "border-ink"
+                        : "border-paper"
+                      : "border-transparent",
                   )}
                 >
                   {item.label}
