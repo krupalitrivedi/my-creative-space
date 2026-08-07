@@ -179,6 +179,13 @@ export type Article = LinkItem & { type: string; topic: string };
 
 export const writing: Article[] = [
   {
+    title: "Continuous clearing auction",
+    href: "https://x.com/chai_really/status/2016853962344058900",
+    type: "Blog",
+    note: "X (Twitter)",
+    topic: "DeFi",
+  },
+  {
     title: "Introduction to IVX Finance",
     href: "https://chaireally.substack.com/p/ivx-finance",
     type: "Explainer",
@@ -261,12 +268,6 @@ export const threads: Thread[] = [
     href: "https://x.com/chai_really/status/1881762074667458889",
     account: "@chai_really",
     topic: "Marketing",
-  },
-  {
-    title: "Continuous clearing auction",
-    href: "https://x.com/chai_really/status/2016853962344058900",
-    account: "@chai_really",
-    topic: "DeFi",
   },
 ];
 
