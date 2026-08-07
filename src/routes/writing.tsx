@@ -8,7 +8,7 @@ import { seo } from "@/lib/seo";
 
 const title = "Writing — Krupali Trivedi";
 const description =
-  "Blogs, explainers, how-tos and threads on dRTC, DePIN, DeFi, APIs and cryptography — written for readers at very different experience levels.";
+  "Blogs, explainers, how-tos and threads on dRTC, DePIN, DeFi, APIs and cryptography.";
 
 export const Route = createFileRoute("/writing")({
   head: () => seo({ title, description, path: "/writing" }),
@@ -34,8 +34,7 @@ function Writing() {
         The Archive
       </h1>
       <p className="mt-10 max-w-2xl text-xl font-light leading-tight md:text-2xl">
-        Blogs, docs, threads and guides about SaaS, AI and blockchain — written for readers at very
-        different experience levels.
+        Blogs, docs, threads and guides about SaaS, AI and blockchain.
       </p>
 
       <section aria-labelledby="articles" className="mt-16">

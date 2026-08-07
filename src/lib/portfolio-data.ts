@@ -262,6 +262,12 @@ export const threads: Thread[] = [
     account: "@chai_really",
     topic: "Marketing",
   },
+  {
+    title: "Continuous clearing auction",
+    href: "https://x.com/chai_really/status/2016853962344058900",
+    account: "@chai_really",
+    topic: "DeFi",
+  },
 ];
 
 export const publications: LinkItem[] = [
