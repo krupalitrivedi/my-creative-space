@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { experience, skills, profile, projects } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/reveal";
+import { StatsRow } from "@/components/stats-row";
 import { seo } from "@/lib/seo";
 import contentStudio from "@/assets/content-studio.jpg";
 import peer2venue from "@/assets/peer2venue.jpg";
@@ -32,6 +33,10 @@ function About() {
           </p>
         </div>
       </div>
+
+      <section aria-label="By the numbers" className="mt-12 px-6 md:px-12">
+        <StatsRow />
+      </section>
 
       <section
         aria-labelledby="journey"

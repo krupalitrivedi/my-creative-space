@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { profile, publications, stats, whatIDo } from "@/lib/portfolio-data";
+import { profile, publications, whatIDo } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/reveal";
+import { StatsRow } from "@/components/stats-row";
 import { seo, siteUrl } from "@/lib/seo";
 
 const title = "Krupali Trivedi — Growth Marketer & Technical Content Strategist";
@@ -57,24 +58,7 @@ function Home() {
       </header>
 
       <section aria-label="By the numbers" className="px-6 py-10 md:px-12 md:py-12">
-        <dl className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <dt className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-ink/60">
-                {stat.label}
-              </dt>
-              <dd>
-                <span className="font-display text-4xl font-semibold tracking-tighter md:text-5xl">
-                  {stat.value}
-                </span>
-                <span className="ml-1 font-display text-xl font-semibold text-brand">
-                  {stat.unit}
-                </span>
-                <span className="mt-2 block text-sm text-ink/60">{stat.note}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <StatsRow />
       </section>
 
       <section aria-labelledby="what-i-do" className="px-6 py-10 md:px-12 md:py-12">
