@@ -39,7 +39,7 @@ function Writing() {
 
       <section aria-labelledby="articles" className="mt-16">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
-          <h2 id="articles" className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
+          <h2 id="articles" className="text-xs font-medium uppercase tracking-[0.2em] text-ink/70">
             Selected articles
           </h2>
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter articles by topic">
@@ -77,10 +77,10 @@ function Writing() {
               <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand md:col-span-2">
                 {article.type}
               </span>
-              <span className="text-xs font-medium uppercase tracking-widest text-ink/40 md:col-span-2">
+              <span className="text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2">
                 {article.note}
               </span>
-              <span className="whitespace-nowrap text-xs font-medium uppercase tracking-widest text-ink/40 md:col-span-2 md:text-right">
+              <span className="whitespace-nowrap text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2 md:text-right">
                 {article.topic} ↗
               </span>
             </a>
@@ -97,7 +97,7 @@ function Writing() {
       <section aria-labelledby="threads" className="mt-16">
         <h2
           id="threads"
-          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40"
+          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/70"
         >
           Threads
         </h2>
@@ -113,10 +113,10 @@ function Writing() {
               <span className="font-display text-xl font-semibold tracking-tight transition-colors group-hover:text-brand md:col-span-8 md:text-2xl">
                 {thread.title}
               </span>
-              <span className="text-xs font-medium uppercase tracking-widest text-ink/40 md:col-span-2">
+              <span className="text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2">
                 {thread.account}
               </span>
-              <span className="text-xs font-medium uppercase tracking-widest text-ink/40 md:col-span-2 md:text-right">
+              <span className="text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2 md:text-right">
                 {thread.topic} ↗
               </span>
             </a>
@@ -127,7 +127,7 @@ function Writing() {
       <section aria-labelledby="publications" className="mt-16">
         <h2
           id="publications"
-          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40"
+          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/70"
         >
           Where I publish
         </h2>

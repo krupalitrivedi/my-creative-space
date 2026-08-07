@@ -22,7 +22,7 @@ function About() {
     <div className="pb-24 pt-28 md:pt-32">
       <div className="px-6 md:px-12">
         <h1 className="font-display text-[clamp(2.25rem,7vw,6rem)] font-semibold uppercase leading-[0.9] tracking-tighter">
-          Krupali <br /> Trivedi
+          Krupali Trivedi
         </h1>
         <div className="mt-12 max-w-2xl space-y-6">
           <p className="leading-relaxed text-ink/70">{profile.introSecondary}</p>
@@ -60,9 +60,9 @@ function About() {
               </span>
               <div className="md:col-span-4">
                 <h3 className="font-display text-xl font-semibold tracking-tight">{item.role}</h3>
-                <p className="text-sm uppercase tracking-widest text-ink/40">{item.org}</p>
+                <p className="text-sm uppercase tracking-widest text-ink/70">{item.org}</p>
                 {item.note ? (
-                  <p className="mt-2 text-xs uppercase tracking-widest text-ink/40">
+                  <p className="mt-2 text-xs uppercase tracking-widest text-ink/60">
                     ({item.note})
                   </p>
                 ) : null}

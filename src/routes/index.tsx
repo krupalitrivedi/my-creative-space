@@ -35,7 +35,7 @@ function Home() {
   return (
     <div>
       <header className="flex flex-col justify-end px-6 pb-16 pt-28 md:px-12 md:pb-20 md:pt-32">
-        <span className="mb-6 block text-xs font-medium uppercase tracking-[0.25em] text-ink/40">
+        <span className="mb-6 block text-xs font-medium uppercase tracking-[0.25em] text-ink/60">
           {profile.name} — {profile.tagline} — {profile.period}
         </span>
         {/* clamp() stops the display type from running past ~11rem on ultrawide
@@ -48,7 +48,7 @@ function Home() {
             {profile.intro}
           </p>
           <div className="flex flex-col justify-end md:col-span-4 md:col-start-9">
-            <span className="mb-2 text-xs uppercase tracking-[0.2em] text-ink/40">
+            <span className="mb-2 text-xs uppercase tracking-[0.2em] text-ink/60">
               {profile.currentlyLabel}
             </span>
             <p className="text-sm font-medium">{profile.currently}</p>
@@ -60,7 +60,7 @@ function Home() {
         <dl className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
           {stats.map((stat) => (
             <div key={stat.label}>
-              <dt className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-ink/40">
+              <dt className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-ink/60">
                 {stat.label}
               </dt>
               <dd>

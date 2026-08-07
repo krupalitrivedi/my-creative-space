@@ -24,10 +24,10 @@ export function SiteFooter() {
           showContactRow ? "mt-10" : "border-t border-ink/10 pt-8",
         )}
       >
-        <p className="text-[10px] uppercase tracking-[0.3em] text-ink/40">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-ink/60">
           © {new Date().getFullYear()} Krupali Trivedi
         </p>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-ink/40">Written with intent.</p>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-ink/60">Written with intent.</p>
       </div>
     </footer>
   );
