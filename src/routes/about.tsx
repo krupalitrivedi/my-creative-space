@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { experience, skills, profile, projects } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/reveal";
 import { seo } from "@/lib/seo";
@@ -159,15 +159,27 @@ function About() {
                     ))}
                   </ul>
                   {project.href ? (
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${project.linkLabel ?? "View work"}: ${project.title}`}
-                      className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
-                    >
-                      {project.linkLabel ?? "View work"}
-                    </a>
+                    // A leading slash means an internal route, which has to go
+                    // through the router rather than a full page load.
+                    project.href.startsWith("/") ? (
+                      <Link
+                        to={project.href}
+                        aria-label={`${project.linkLabel ?? "View work"}: ${project.title}`}
+                        className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
+                      >
+                        {project.linkLabel ?? "View work"}
+                      </Link>
+                    ) : (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${project.linkLabel ?? "View work"}: ${project.title}`}
+                        className="inline-block border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
+                      >
+                        {project.linkLabel ?? "View work"}
+                      </a>
+                    )
                   ) : null}
                 </div>
               </Reveal>

@@ -170,8 +170,10 @@ export const projects: Project[] = [
     title: "A Code and A Word",
     body: "A long-running series of technical blogs and newsletters covering everything from APIs and cryptography to account abstraction, written for readers at very different experience levels.",
     stack: ["Writing", "Newsletter", "Technical education"],
-    href: "https://acodeandaword.com",
-    linkLabel: "Open",
+    // Internal: this site is A Code and A Word, so it points at the archive
+    // rather than linking back out to its own domain.
+    href: "/writing",
+    linkLabel: "Read the writing",
   },
 ];
 
