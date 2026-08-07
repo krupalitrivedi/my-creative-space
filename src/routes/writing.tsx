@@ -8,7 +8,7 @@ import { seo } from "@/lib/seo";
 
 const title = "Writing — Krupali Trivedi";
 const description =
-  "Blogs, documentation and threads on decentralized real-time communication, Web3, AI and APIs by Krupali Trivedi.";
+  "Blogs, explainers, how-tos and threads on dRTC, DePIN, DeFi, APIs and cryptography.";
 
 export const Route = createFileRoute("/writing")({
   head: () => seo({ title, description, path: "/writing" }),
@@ -18,77 +18,118 @@ export const Route = createFileRoute("/writing")({
 const ALL = "All";
 
 function Writing() {
-  const [source, setSource] = useState(ALL);
+  const [topic, setTopic] = useState(ALL);
 
-  // Each piece already carries the publication it ran in as `note`, so the
-  // filter list is derived rather than maintained by hand.
-  const sources = useMemo(
-    () => [ALL, ...Array.from(new Set(writing.map((w) => w.note).filter(Boolean) as string[]))],
-    [],
-  );
+  // Derived from the data so a new article's topic appears as a filter for free.
+  const topics = useMemo(() => [ALL, ...new Set(writing.map((w) => w.topic))], []);
 
   const filtered = useMemo(
-    () => (source === ALL ? writing : writing.filter((w) => w.note === source)),
-    [source],
+    () => (topic === ALL ? writing : writing.filter((w) => w.topic === topic)),
+    [topic],
   );
 
   return (
-    <div className="px-6 pb-24 pt-40 md:px-12 md:pt-48">
-      <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter">
+    <div className="px-6 pb-24 pt-28 md:px-12 md:pt-32">
+      <h1 className="font-display text-[clamp(2.25rem,7vw,6rem)] font-semibold uppercase leading-[0.9] tracking-tighter">
         The Archive
       </h1>
       <p className="mt-10 max-w-2xl text-xl font-light leading-tight md:text-2xl">
-        Blogs, articles, how-tos and documentation. Some published on my own blog, some for
-        Huddle01, some in places I was just curious about.
+        Blogs, docs, threads and guides about SaaS, AI and blockchain.
       </p>
 
-      <section aria-labelledby="blogs" className="mt-24">
+      <section aria-labelledby="articles" className="mt-16">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
-          <h2 id="blogs" className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
-            Blogs &amp; Articles
+          <h2 id="articles" className="text-xs font-medium uppercase tracking-[0.2em] text-ink/70">
+            Selected articles
           </h2>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter writing by source">
-            {sources.map((s) => (
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter articles by topic">
+            {topics.map((t) => (
               <button
-                key={s}
+                key={t}
                 type="button"
-                onClick={() => setSource(s)}
-                aria-pressed={source === s}
+                onClick={() => setTopic(t)}
+                aria-pressed={topic === t}
                 className={cn(
                   "border px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] transition-colors",
-                  source === s
+                  topic === t
                     ? "border-ink bg-ink text-paper"
                     : "border-ink/15 text-ink/60 hover:border-ink hover:text-ink",
                 )}
               >
-                {s}
+                {t}
               </button>
             ))}
           </div>
         </div>
-        <LinkIndex items={filtered} />
-        <p aria-live="polite" className="mt-4 text-xs uppercase tracking-widest text-ink/40">
-          {filtered.length} {filtered.length === 1 ? "piece" : "pieces"}
-          {source === ALL ? "" : ` from ${source}`}
+
+        <div className="border-t border-ink/10">
+          {filtered.map((article) => (
+            <a
+              key={article.href}
+              href={article.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group grid grid-cols-1 items-baseline gap-2 border-b border-ink/10 py-6 md:grid-cols-12 md:gap-8"
+            >
+              <span className="font-display text-xl font-semibold tracking-tight transition-colors group-hover:text-brand md:col-span-6 md:text-2xl">
+                {article.title}
+              </span>
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-brand md:col-span-2">
+                {article.type}
+              </span>
+              <span className="text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2">
+                {article.note}
+              </span>
+              <span className="whitespace-nowrap text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2 md:text-right">
+                {article.topic} ↗
+              </span>
+            </a>
+          ))}
+        </div>
+        {/* Visually dropped, but kept for screen readers: without it, changing
+            the filter gives no feedback that the list changed. */}
+        <p aria-live="polite" className="sr-only">
+          Showing {filtered.length} {filtered.length === 1 ? "article" : "articles"}
+          {topic === ALL ? "" : ` on ${topic}`}
         </p>
       </section>
 
-      <section aria-labelledby="threads" className="mt-24">
+      <section aria-labelledby="threads" className="mt-16">
         <h2
           id="threads"
-          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40"
+          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/70"
         >
           Threads
         </h2>
-        <LinkIndex items={threads.map((t) => ({ ...t, note: "Thread" }))} />
+        <div className="border-t border-ink/10">
+          {threads.map((thread) => (
+            <a
+              key={thread.href}
+              href={thread.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group grid grid-cols-1 items-baseline gap-2 border-b border-ink/10 py-6 md:grid-cols-12 md:gap-8"
+            >
+              <span className="font-display text-xl font-semibold tracking-tight transition-colors group-hover:text-brand md:col-span-8 md:text-2xl">
+                {thread.title}
+              </span>
+              <span className="text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2">
+                {thread.account}
+              </span>
+              <span className="text-xs font-medium uppercase tracking-widest text-ink/60 md:col-span-2 md:text-right">
+                {thread.topic} ↗
+              </span>
+            </a>
+          ))}
+        </div>
       </section>
 
-      <section aria-labelledby="publications" className="mt-24">
+      <section aria-labelledby="publications" className="mt-16">
         <h2
           id="publications"
-          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40"
+          className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/70"
         >
-          Where I Publish
+          Where I publish
         </h2>
         <LinkIndex items={publications} />
       </section>
