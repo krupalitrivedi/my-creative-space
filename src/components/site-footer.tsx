@@ -1,30 +1,29 @@
-import { profile } from "@/lib/portfolio-data";
+import { useRouterState } from "@tanstack/react-router";
+
+import { ContactLinks } from "@/components/contact-links";
+import { cn } from "@/lib/utils";
 
 export function SiteFooter() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // The contact page carries this row itself, directly under its intro.
+  const showContactRow = pathname !== "/contact";
+
   return (
     <footer id="contact" className="px-6 py-12 md:px-12 md:py-16">
-      <div className="flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 md:flex-row md:items-center">
-        <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink">
-          Get in touch
-        </span>
-        <div className="flex flex-wrap gap-6 text-sm font-medium uppercase tracking-widest md:gap-10">
-          <a href={`mailto:${profile.email}`} className="transition-colors hover:text-brand">
-            Email
-          </a>
-          {profile.socials.map((s) => (
-            <a
-              key={s.title}
-              href={s.href}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-opacity hover:opacity-60"
-            >
-              {s.title}
-            </a>
-          ))}
+      {showContactRow ? (
+        <div className="flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 md:flex-row md:items-center">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-ink">
+            Get in touch
+          </span>
+          <ContactLinks />
         </div>
-      </div>
-      <div className="mt-10 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+      ) : null}
+      <div
+        className={cn(
+          "flex flex-col justify-between gap-2 sm:flex-row sm:items-center",
+          showContactRow ? "mt-10" : "border-t border-ink/10 pt-8",
+        )}
+      >
         <p className="text-[10px] uppercase tracking-[0.3em] text-ink/40">
           © {new Date().getFullYear()} Krupali Trivedi
         </p>
