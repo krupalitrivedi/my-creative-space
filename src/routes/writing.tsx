@@ -40,7 +40,7 @@ function Writing() {
       <section aria-labelledby="articles" className="mt-16">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
           <h2 id="articles" className="text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
-            {writing.length} selected articles
+            Selected articles
           </h2>
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter articles by topic">
             {topics.map((t) => (
@@ -86,8 +86,10 @@ function Writing() {
             </a>
           ))}
         </div>
-        <p aria-live="polite" className="mt-4 text-xs uppercase tracking-widest text-ink/40">
-          {filtered.length} {filtered.length === 1 ? "article" : "articles"}
+        {/* Visually dropped, but kept for screen readers: without it, changing
+            the filter gives no feedback that the list changed. */}
+        <p aria-live="polite" className="sr-only">
+          Showing {filtered.length} {filtered.length === 1 ? "article" : "articles"}
           {topic === ALL ? "" : ` on ${topic}`}
         </p>
       </section>
@@ -97,7 +99,7 @@ function Writing() {
           id="threads"
           className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40"
         >
-          {threads.length} threads on X
+          Threads
         </h2>
         <div className="border-t border-ink/10">
           {threads.map((thread) => (
