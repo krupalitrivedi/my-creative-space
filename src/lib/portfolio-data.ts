@@ -181,6 +181,13 @@ export type Article = LinkItem & { type: string; topic: string };
 
 export const writing: Article[] = [
   {
+    title: "Read articles written for Tiiny Host",
+    href: "https://tiiny.host/blog/author/krupali",
+    type: "Collection",
+    note: "Tiiny Host",
+    topic: "SEO",
+  },
+  {
     title: "Continuous clearing auction",
     href: "https://x.com/chai_really/status/2016853962344058900",
     type: "Blog",
@@ -235,13 +242,6 @@ export const writing: Article[] = [
     type: "How-to",
     note: "Hashnode",
     topic: "Fundamentals",
-  },
-  {
-    title: "Read articles written for Tiiny Host",
-    href: "https://tiiny.host/blog/author/krupali",
-    type: "Collection",
-    note: "Tiiny Host",
-    topic: "SEO",
   },
 ];
 

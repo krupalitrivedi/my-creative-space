@@ -30,7 +30,7 @@ function Writing() {
 
   return (
     <div className="px-6 pb-24 pt-28 md:px-12 md:pt-32">
-      <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter">
+      <h1 className="font-display text-[clamp(2.25rem,7vw,6rem)] font-semibold uppercase leading-[0.9] tracking-tighter">
         The Archive
       </h1>
       <p className="mt-10 max-w-2xl text-xl font-light leading-tight md:text-2xl">

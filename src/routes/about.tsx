@@ -21,7 +21,7 @@ function About() {
   return (
     <div className="pb-24 pt-28 md:pt-32">
       <div className="px-6 md:px-12">
-        <h1 className="font-display text-[clamp(3rem,13vw,13rem)] font-semibold uppercase leading-[0.85] tracking-tighter md:text-[clamp(3rem,10vw,13rem)]">
+        <h1 className="font-display text-[clamp(2.25rem,7vw,6rem)] font-semibold uppercase leading-[0.9] tracking-tighter">
           Krupali <br /> Trivedi
         </h1>
         <div className="mt-12 max-w-2xl space-y-6">
