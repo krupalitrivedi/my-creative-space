@@ -32,7 +32,7 @@ export const stats = [
   { value: "$20k", unit: "+", label: "Revenue driven", note: "via email as a new channel" },
   { value: "17", unit: "%", label: "Avg. open rate", note: "on email campaigns" },
   { value: "5", unit: "%", label: "Avg. click rate", note: "across the same campaigns" },
-  { value: "6", unit: "yr", label: "Years writing", note: "technology, for humans" },
+  { value: "6", unit: "years", label: "Years writing", note: "technology, for humans" },
 ];
 
 export const whatIDo = [
