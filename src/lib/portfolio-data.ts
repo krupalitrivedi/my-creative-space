@@ -11,11 +11,11 @@ export const profile = {
   mark: "AC&W",
   tagline: "Growth + Content",
   intro:
-    "A little bit of content, a little bit of tech and a lot of marketing. Engineer turned marketer who loves to build, talk about and tinker around with products and tech.",
+    "A little bit of content, a little bit of tech and a lot of marketing. Engineer turned marketer who loves to talk about and tinker around with products and tech.",
   introSecondary:
-    "I have worked at and with SaaS, Cloud and Blockchain companies to manage their content marketing. I love being chronically online, testing things out in public and building tools.",
+    "I have worked at and with SaaS, Cloud and Blockchain companies to manage their content marketing. I love being chronically online and seeing different types of content unfold every day.",
   currentlyLabel: "Current rabbit holes",
-  currently: "Building with agents, Pinterest marketing and Reddit marketing.",
+  currently: "Reddit Marketing, Pinterest Marketing and Video Content",
   period: "2020 to Present",
   email: "krupalitrivedi2002@gmail.com",
   linkedin: "https://www.linkedin.com/in/krupalitrivedi/",
