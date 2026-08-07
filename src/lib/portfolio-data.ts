@@ -38,7 +38,7 @@ export const stats = [
 export const whatIDo = [
   "Growth and Marketing",
   "Technical writing and SEO",
-  "Build things",
+  "Scroll through Twitter and Insta",
   "Drink Matcha",
   "Read Books",
 ];
