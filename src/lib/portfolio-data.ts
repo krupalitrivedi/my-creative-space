@@ -157,12 +157,6 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
-export const education = {
-  degree: "B.Tech, Computer Science & Engineering",
-  org: "Indus University",
-  period: "2020 to 2024",
-};
-
 export type Project = {
   title: string;
   body: string;

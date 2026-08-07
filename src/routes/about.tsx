@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { experience, skills, education, profile } from "@/lib/portfolio-data";
+import { experience, skills, profile } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/reveal";
 import { seo } from "@/lib/seo";
 
@@ -100,23 +100,6 @@ function About() {
               </div>
             </Reveal>
           ))}
-        </div>
-
-        <div className="mt-16">
-          <h2 className="mb-8 text-xs font-medium uppercase tracking-[0.2em] text-ink/40">
-            Education
-          </h2>
-          <div className="grid grid-cols-1 gap-4 border-t border-ink/10 pt-8 md:grid-cols-12 md:gap-8">
-            <span className="text-xs font-medium uppercase tracking-widest text-brand md:col-span-3">
-              {education.period}
-            </span>
-            <div className="md:col-span-9">
-              <h3 className="font-display text-xl font-semibold tracking-tight">
-                {education.degree}
-              </h3>
-              <p className="text-sm uppercase tracking-widest text-ink/40">{education.org}</p>
-            </div>
-          </div>
         </div>
       </section>
 
