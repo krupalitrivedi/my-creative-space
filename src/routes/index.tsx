@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { profile, writing, publications, stats, whatIDo } from "@/lib/portfolio-data";
-import { LinkIndex } from "@/components/link-index";
+import { profile, publications, stats, whatIDo } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/reveal";
 import { seo, siteUrl } from "@/lib/seo";
 
@@ -107,24 +106,6 @@ function Home() {
         </ul>
       </section>
 
-      <section aria-labelledby="recent-writing" className="px-6 py-10 md:px-12 md:py-12">
-        <div className="mb-10 flex flex-wrap items-baseline justify-between gap-4">
-          <h2
-            id="recent-writing"
-            className="font-display text-3xl font-semibold uppercase tracking-tighter md:text-4xl"
-          >
-            Recent Writing
-          </h2>
-          <Link
-            to="/writing"
-            className="border-b border-ink pb-1 text-sm font-medium uppercase tracking-widest transition-colors hover:border-brand hover:text-brand"
-          >
-            The full archive
-          </Link>
-        </div>
-        <LinkIndex items={writing.slice(0, 4)} />
-      </section>
-
       <section
         aria-labelledby="where-i-publish"
         className="bg-ink px-6 py-16 text-paper md:px-12 md:py-20"
@@ -135,7 +116,7 @@ function Home() {
               id="where-i-publish"
               className="font-display text-4xl font-semibold uppercase leading-[0.9] tracking-tighter md:text-6xl"
             >
-              Words are <br /> the whole <br /> product.
+              Places you <br /> will find <br /> my writing.
             </h2>
           </div>
           <div className="md:col-span-6 md:col-start-7">
@@ -158,6 +139,14 @@ function Home() {
                 </li>
               ))}
             </ul>
+            {/* With "Recent writing" gone, this is the home page's only route
+                into the archive. */}
+            <Link
+              to="/writing"
+              className="mt-10 inline-block border-b border-paper pb-1 text-sm font-medium uppercase tracking-widest transition-opacity hover:opacity-60"
+            >
+              The full archive
+            </Link>
           </div>
         </div>
       </section>
