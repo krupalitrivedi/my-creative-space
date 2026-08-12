@@ -43,13 +43,19 @@ export const whatIDo = [
   "Read Books",
 ];
 
+/** A run of text, or a link, inside a bullet. */
+export type PointSegment = string | { label: string; href: string };
+
+/** A bullet is either plain text or a list of segments with links in it. */
+export type Point = string | PointSegment[];
+
 export type ExperienceItem = {
   role: string;
   note?: string;
   org: string;
   period: string;
   body: string;
-  points?: string[];
+  points?: Point[];
   tags?: string[];
 };
 
@@ -67,6 +73,17 @@ export const experience: ExperienceItem[] = [
     period: "Jul 2025 to Jun 2026",
     body: "Multiple hats under one name. Writing content, managing social media, managing end to end email marketing, creator outreach and management, product launches and a little bit of everything.",
     points: [
+      [
+        "Managed social media strategy, content and execution for ",
+        { label: "Huddle01 Network", href: "https://x.com/huddle01com" },
+        ", ",
+        { label: "Huddle01 Meet", href: "https://x.com/MeetonHuddle01" },
+        ", ",
+        { label: "House", href: "https://x.com/farhousedotclub" },
+        " and ",
+        { label: "Huddle01 Cloud", href: "https://x.com/Huddle01Cloud" },
+        " for X, LinkedIn, Farcaster and Reddit.",
+      ],
       "Activated email marketing as one more source of distribution.",
       "Managed end to end email marketing, including specific campaigns during Node Sales and Testnet Activities, with an average open rate of 17% and a click rate of 5%.",
       "Brought in $20k+ revenue through email marketing.",
