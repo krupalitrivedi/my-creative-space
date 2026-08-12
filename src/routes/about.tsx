@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { experience, skills, profile, projects } from "@/lib/portfolio-data";
+import { experience, skills, profile, projects, type Point } from "@/lib/portfolio-data";
 import { Reveal } from "@/components/reveal";
 import { StatsRow } from "@/components/stats-row";
 import { seo } from "@/lib/seo";
@@ -14,6 +14,13 @@ export const Route = createFileRoute("/about")({
   head: () => seo({ title, description, path: "/about", type: "profile" }),
   component: About,
 });
+
+/** Bullets can be a string or a list of segments, so flatten for a stable key. */
+function pointKey(point: Point): string {
+  return typeof point === "string"
+    ? point
+    : point.map((s) => (typeof s === "string" ? s : s.label)).join("");
+}
 
 /** Only the first two projects have artwork; the third is writing, not a product. */
 const projectImages = [contentStudio, peer2venue];
@@ -78,10 +85,26 @@ function About() {
                   <ul className="mt-4 space-y-2">
                     {item.points.map((point) => (
                       <li
-                        key={point}
+                        key={pointKey(point)}
                         className="relative pl-5 leading-relaxed text-ink/70 before:absolute before:left-0 before:top-[0.6em] before:h-1 before:w-1 before:rounded-full before:bg-brand"
                       >
-                        {point}
+                        {typeof point === "string"
+                          ? point
+                          : point.map((segment) =>
+                              typeof segment === "string" ? (
+                                segment
+                              ) : (
+                                <a
+                                  key={segment.href}
+                                  href={segment.href}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="border-b border-ink/30 transition-colors hover:border-brand hover:text-brand"
+                                >
+                                  {segment.label}
+                                </a>
+                              ),
+                            )}
                       </li>
                     ))}
                   </ul>
